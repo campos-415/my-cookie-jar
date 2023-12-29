@@ -30,4 +30,12 @@
   .specialGradient {
     @apply bg-gradient-to-r from-[#896145] to-[#5b3a2a]
   }
+
+  .borderGradient {
+    @apply text-center pb-1 bg-gradient-to-r from-[#896145] to-[#5b3a2a] bg-no-repeat bg-bottom;
+    background-size: 100% 4px;
+    
+
+
+  }
 }

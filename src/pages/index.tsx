@@ -4,9 +4,17 @@ import Landing from '@/components/Landing';
 import { Tab } from "@headlessui/react";
 import MyTabs from '@/components/Tabs';
 import { GetServerSideProps } from 'next';
+import { fetchCategories } from '@/utils/fetchCategories';
+import { fetchProducts } from '@/utils/fetchProducts';
+
+interface Props {
+  categories: Category[]
+  products: Product[]
+}
 
 
-export default function Home() {
+export default function Home({ categories, products }: Props) {
+  console.log(categories)
   return (
     <>
       <Header />
@@ -20,7 +28,7 @@ export default function Home() {
           </h1>
 
           <div>
-            <MyTabs/>
+            <MyTabs categories={categories} products={products} />
           </div>
         </div>
       </section>
@@ -30,10 +38,14 @@ export default function Home() {
 
 //Backend Code 
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   
-  // const categories = await fetchCategories()
+  const categories = await fetchCategories()
+  const products = await fetchProducts()
   return {
-    props: {}
+    props: {
+      categories,
+      products,
+    }
   }
 } 

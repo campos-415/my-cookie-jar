@@ -20,7 +20,7 @@ function Landing() {
         </h1>
 
         <div className='space-x-8'>
-          <Button title="Buy Now" onClick={onClick} loading={loading}  />
+          <Button noIcon title="Buy Now" onClick={onClick} loading={loading}  />
           <a className='link'>Learn More</a>
         </div>
       </div>

@@ -19,7 +19,7 @@ function Button({title, onClick, width, loading, padding, noIcon}:Props) {
         <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out specialGradient group-hover:h-full text-black">
         </span>
         <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
-          {!noIcon && (
+          {noIcon && (
             <svg
               className="w-5 h-5 text-[#896145]"
               fill="none"
@@ -27,9 +27,9 @@ function Button({title, onClick, width, loading, padding, noIcon}:Props) {
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg">
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
           )}
@@ -42,9 +42,9 @@ function Button({title, onClick, width, loading, padding, noIcon}:Props) {
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg">
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
         </span>
