@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectedBasketItems } from "../../redux/basketSlice";
 import Link from "next/link";
-import { ShoppingBagIcon } from "@heroicons/react/outline";
+import { ShoppingCartIcon } from "@heroicons/react/outline";
 
 function Basket() {
   const items = useSelector(selectedBasketItems);
@@ -16,7 +16,7 @@ function Basket() {
             {items.length}
           </span>
         )}
-        <ShoppingBagIcon className="headerIcon h-8 w-8" />
+        <ShoppingCartIcon className="headerIcon h-8 w-8" />
       </div>
     </Link>
   );

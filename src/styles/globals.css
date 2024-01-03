@@ -8,12 +8,9 @@
   body {
     @apply font-body text-[#232428]
   }
-
-  main {
-    @apply bg-[#e0d3bc] relative h-[200vh]
-  }
-
-  
+   main {
+   @apply relative h-[200vh] bg-[#e0d3bc]
+   }
 }
 
 @layer components {

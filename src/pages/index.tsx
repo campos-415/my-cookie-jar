@@ -30,7 +30,7 @@ export default function Home({ categories, products }: Props) {
       <main>
         <Landing />
       </main>
-      <section className="productSection">
+      <section id='products' className="productSection">
         <Basket />
         <div className="space-y-10 py-16">
           <h1 className="text-center text-4xl font-medium tracking-wide text-white md:text-5xl">
