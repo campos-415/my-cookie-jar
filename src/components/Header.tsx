@@ -35,7 +35,7 @@ function Header() {
           <SearchIcon className="headerIcon" />
           <Link href="/checkout">
             <div className="relative cursor-pointer">
-             <ShoppingCartIcon className="headerIcon" />
+              <ShoppingCartIcon className="headerIcon" />
               <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 justify-center items-center rounded-full specialGradient text-[10px] text-white">
                 {totalItems.length}
               </span>

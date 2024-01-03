@@ -28,13 +28,13 @@ export default function Home({ categories, products }: Props) {
       <Header />
 
       <main>
-        <Basket />
         <Landing />
       </main>
       <section className="productSection">
+        <Basket />
         <div className="space-y-10 py-16">
           <h1 className="text-center text-4xl font-medium tracking-wide text-white md:text-5xl">
-            New Promos
+            New Products
           </h1>
           <MyTabs categories={categories} products={products} />
         </div>

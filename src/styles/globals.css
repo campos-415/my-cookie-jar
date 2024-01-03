@@ -10,7 +10,7 @@
   }
 
   main {
-    @apply bg-[#e0d3bc] relative h-[200vh] -z-50
+    @apply bg-[#e0d3bc] relative h-[200vh] 
   }
 
   
@@ -43,10 +43,10 @@
   }
 
   .tabPanel {
-    @apply grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 
+    @apply grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 
   }
 
   .productSection {
-    @apply relative z-40 -mt-[100vh] min-h-screen bg-[#1b1b1b]
+    @apply relative z-50 -mt-[100vh] min-h-screen bg-[#1b1b1b]
   }
 }

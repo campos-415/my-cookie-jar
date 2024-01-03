@@ -26,7 +26,7 @@ function Product({ product }: Props) {
   console.log(imageUrl)
 
   return (
-    <div className='flex h-fit w-[280px] select-none flex-col spcae-y-3 rounded-xl bg-[#35383C] p-8 md:h-[500px] md:w-[400px] md:p-10'>
+    <div className='flex h- h-full w-[240px] min-[320px]:w-[150px] sm:h-[300px] select-none flex-col spcae-y-3 rounded-xl bg-[#35383C] p-8 md:h-[500px] md:w-[400px] md:p-10'>
       <div className='relative h-64 w-full md:h-72'>
         <Image src={imageUrl} layout='fill' objectFit='contain' alt='ProductImage' />
       </div>
