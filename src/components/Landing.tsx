@@ -11,7 +11,7 @@ function Landing() {
     return
   }
   return (
-    <section className='bg-[#e0d3bc] sticky top-0 mx-auto flex h-screen max-w-[1350px] items-center justify-between px-8'>
+    <section className='bg-[#e0d3bc] sticky top-0 mx-auto flex h-screen max-w-[1350px] items-center justify-start px-8'>
       <div className='space-y-8'>
         <h1 className='space-y-3 text-5xl tracking-wide font-semibold lg:text-6xl xl:text-7xl'>
           <span className=' specialGradient text-transparent bg-clip-text'>Baked</span>

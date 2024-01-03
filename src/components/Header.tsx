@@ -12,7 +12,7 @@ function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#e0d3bc] p-4">
+      <header className="relative top-0 z-0 flex w-full items-center justify-between bg-[#e0d3bc] p-4">
         <div className="flex items-center justify-center md:w-1/5">
           <Link href="/">
             <div className="relative h-20 w-20 cursor-pointer opacity-75 transition hover:opacity-100">

@@ -7,6 +7,7 @@ import { GetServerSideProps } from 'next';
 import { fetchCategories } from '@/utils/fetchCategories';
 import { fetchProducts } from '@/utils/fetchProducts';
 import Basket from '@/components/Basket';
+import Head from 'next/head';
 
 interface Props {
   categories: Category[]
@@ -20,21 +21,22 @@ export default function Home({ categories, products }: Props) {
 
   return (
     <>
+      <Head>
+        <title>My Cookie Jar | Home</title>
+        <link rel="icon" href="/myCookieJarIcon.ico" />
+      </Head>
       <Header />
 
-      <main className="relative h-[200vh]">
+      <main>
         <Basket />
         <Landing />
       </main>
-      <section className="relative z-40 -mt-[100vh] bg-[#1b1b1b] h-[150vh]">
-        <div className="space-y-10 pt-16">
+      <section className="productSection">
+        <div className="space-y-10 py-16">
           <h1 className="text-center text-4xl font-medium tracking-wide text-white md:text-5xl">
             New Promos
           </h1>
-
-          <div>
-            <MyTabs categories={categories} products={products} />
-          </div>
+          <MyTabs categories={categories} products={products} />
         </div>
       </section>
     </>

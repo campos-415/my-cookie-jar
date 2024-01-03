@@ -10,8 +10,10 @@
   }
 
   main {
-    @apply bg-[#e0d3bc]
+    @apply bg-[#e0d3bc] relative h-[200vh] -z-50
   }
+
+  
 }
 
 @layer components {
@@ -37,10 +39,14 @@
   }
 
   .shoppingCartIconStyle {
-    @apply flex h-16 w-16 flex-shrink-0 cursor-pointer items-center justify-center rounded-full specialGradient md:h-[70px] md:w-[70px]
+    @apply flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full specialGradient md:h-[70px] md:w-[70px]
   }
 
   .tabPanel {
-    @apply grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2
+    @apply grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 
+  }
+
+  .productSection {
+    @apply relative z-40 -mt-[100vh] min-h-screen bg-[#1b1b1b]
   }
 }
