@@ -10,7 +10,7 @@
   }
 
   main {
-    @apply bg-[#e0d3bc] relative h-[200vh] 
+    @apply bg-[#e0d3bc] relative h-[200vh]
   }
 
   
@@ -39,11 +39,11 @@
   }
 
   .shoppingCartIconStyle {
-    @apply flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full specialGradient md:h-[70px] md:w-[70px]
+    @apply flex h-12 w-12 flex-shrink-0 cursor-pointer items-center justify-center rounded-full specialGradient md:h-[70px] md:w-[70px]
   }
 
   .tabPanel {
-    @apply grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 
+    @apply grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 
   }
 
   .productSection {
