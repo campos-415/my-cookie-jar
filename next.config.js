@@ -9,6 +9,12 @@ const nextConfig = {
         port: "",
         pathname: "/vsvv2o",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        // pathname: "",
+      },
     ],
   },
   // images.remotePatterns

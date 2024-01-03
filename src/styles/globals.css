@@ -32,10 +32,15 @@
   }
 
   .borderGradient {
-    @apply text-center pb-1 bg-gradient-to-r from-[#896145] to-[#5b3a2a] bg-no-repeat bg-bottom;
+    @apply text-center pb-1 specialGradient bg-no-repeat bg-bottom;
     background-size: 100% 4px;
-    
+  }
 
+  .shoppingCartIconStyle {
+    @apply flex h-16 w-16 flex-shrink-0 cursor-pointer items-center justify-center rounded-full specialGradient md:h-[70px] md:w-[70px]
+  }
 
+  .tabPanel {
+    @apply grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2
   }
 }

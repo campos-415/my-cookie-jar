@@ -1,11 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { BadgeCheckIcon, SearchIcon, ShoppingCartIcon, UserIcon} from '@heroicons/react/outline'
+import { SearchIcon, ShoppingCartIcon, UserIcon} from '@heroicons/react/outline'
+import { selectedBasketItems,  } from '../../redux/basketSlice'
+import { useSelector } from 'react-redux'
 
 function Header() {
 
   const session = false
+  const totalItems = useSelector(selectedBasketItems) 
+
   return (
     <>
       <header className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#e0d3bc] p-4">
@@ -33,7 +37,7 @@ function Header() {
             <div className="relative cursor-pointer">
              <ShoppingCartIcon className="headerIcon" />
               <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 justify-center items-center rounded-full specialGradient text-[10px] text-white">
-                5
+                {totalItems.length}
               </span>
             </div>
           </Link>
