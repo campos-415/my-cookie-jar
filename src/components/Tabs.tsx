@@ -9,11 +9,11 @@ function MyTabs({ categories, products }: props) {
   console.log("Products:", products)
 
 
-  const showProducts = (category: number) => {
-    return products
-      .filter((product) => product.category._ref === categories[category._id])
-      .map((product) => (<Product />))
-  }
+  // const showProducts = (category: number) => {
+  //   return products
+  //     .filter((product) => product.category._ref === categories[category._id])
+  //     .map((product) => (<Product />))
+  // }
 
 
   return (
