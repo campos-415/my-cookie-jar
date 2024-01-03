@@ -6,17 +6,21 @@ import { selectedBasketItems } from '../../redux/basketSlice';
 import Button from '@/components/Button';
 import { useRouter } from 'next/router';
 import Product from '@/components/Product';
+import CheckOurProduct from '@/components/CheckOurProduct';
 
 export default function Cart() {
   const items = useSelector(selectedBasketItems)
   const router = useRouter()
-  const [groupedIteminBasket, setGroupedItemsInBasket] = useState({} as { [key: string]: Product[] })
+  const [groupedItemInBasket, setGroupedItemsInBasket] = useState({} as { [key: string]: Product[] })
   
   useEffect(() => {
     const groupedItems = items.reduce((results, item) => {
       (results[item._id] = results[item._id] || []).push(item)
       return results
-    }, {} as {[key:string]: Product[]})
+    }, {} as { [key: string]: Product[] })
+    
+    setGroupedItemsInBasket(groupedItemInBasket)
+    
   },[items])
   return (
     <>
@@ -40,7 +44,13 @@ export default function Cart() {
           }
         </div>
         {
-          items.length > 0 && (<></>)
+          items.length > 0 && (
+            <div>
+              {Object.entries(groupedItemInBasket).map(([key, items]) => (
+                <CheckOurProduct key={key} items={items} id={key}  />
+              ) )}
+            </div>
+          )
         }
       </main>
     </>
