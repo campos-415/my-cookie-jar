@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import Header from '@/components/Header'
 import Landing from '@/components/Landing';
-import { Tab } from "@headlessui/react";
 import MyTabs from '@/components/Tabs';
 import { GetServerSideProps } from 'next';
 import { fetchCategories } from '@/utils/fetchCategories';

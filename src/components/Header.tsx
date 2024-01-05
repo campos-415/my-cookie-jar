@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Links from 'next/link'
 import React from 'react'
 import { SearchIcon, ShoppingCartIcon, UserIcon} from '@heroicons/react/outline'
-import { selectedBasketItems,  } from '../../redux/basketSlice'
+import { selectBasketItems,  } from '../../redux/basketSlice'
 import { useSelector } from 'react-redux'
 import {
   Link ,
@@ -16,7 +16,7 @@ import {
 function Header() {
 
   const session = false
-  const totalItems = useSelector(selectedBasketItems) 
+  const totalItems = useSelector(selectBasketItems) 
   const handleSetActive = (to:string) => {
     console.log(to);
   };

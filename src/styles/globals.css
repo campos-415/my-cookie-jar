@@ -5,12 +5,14 @@
 @tailwind utilities;
 
 @layer base {
+
   body {
-    @apply font-body text-[#232428]
+    @apply font-body text-[#232428] bg-[#e0d3bc]
   }
-   main {
-   @apply relative h-[200vh] bg-[#e0d3bc]
-   }
+
+  main {
+    @apply relative h-[200vh]
+  }
 }
 
 @layer components {
@@ -36,11 +38,11 @@
   }
 
   .shoppingCartIconStyle {
-    @apply flex h-12 w-12 flex-shrink-0 cursor-pointer items-center justify-center rounded-full specialGradient md:h-[70px] md:w-[70px]
+    @apply flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-black md:h-[70px] md:w-[70px] hover:bg-white
   }
 
   .tabPanel {
-    @apply grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 
+    @apply grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2
   }
 
   .productSection {
