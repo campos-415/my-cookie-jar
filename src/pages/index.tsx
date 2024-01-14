@@ -27,7 +27,6 @@ export default function Home({ categories, products }: Props) {
       <main>
         <Checkout />
         <Landing />
-        <Landing />
       </main>
       <section id='products' className="productSection">
         <Basket />
