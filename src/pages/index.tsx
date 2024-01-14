@@ -6,6 +6,7 @@ import { fetchCategories } from '@/utils/fetchCategories';
 import { fetchProducts } from '@/utils/fetchProducts';
 import Basket from '@/components/Basket';
 import Head from 'next/head';
+import Checkout from '@/components/Checkout';
 
 interface Props {
   categories: Category[]
@@ -14,8 +15,6 @@ interface Props {
 
 
 export default function Home({ categories, products }: Props) {
-  console.log(categories)
-
 
   return (
     <>
@@ -26,6 +25,7 @@ export default function Home({ categories, products }: Props) {
       <Header />
 
       <main>
+        <Checkout />
         <Landing />
       </main>
       <section id='products' className="productSection">

@@ -7,19 +7,18 @@ function Landing() {
 
   function onClick() {
     setLoading(!loading)
-    console.log("its working", loading)
     return
   }
   return (
     <section className='fixed w-full h-full top-24'>
-      <div className="bg-[#e0d3bc] mx-auto flex h-screen max-w-[7776px] items-center justify-between space-x-3 px-8">
+      <div className=" mx-auto flex h-screen max-w-[7776px] items-center justify-between space-x-3 px-8">
         <div className="space-y-8 ">
           <h1 className="space-y-3 text-5xl tracking-wide font-semibold lg:text-6xl xl:text-7xl">
-            <span className=" specialGradient text-transparent bg-clip-text">
+            <span className=" textGradient">
               Baked
             </span>
-            <span className="block">With Passion</span>
-            <span className="block">Crafted With Love</span>
+            <span className="block ">With Passion</span>
+            <span className="block  textGradient">Crafted With Love</span>
           </h1>
 
           <div className="space-x-8">

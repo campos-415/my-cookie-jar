@@ -36,7 +36,8 @@ interface Product {
     _type: "reference"
     _ref: string
   }
-  image:Image[]
+  image: Image[]
+  total:number
 }
 
 interface StripeProduct {

@@ -41,6 +41,11 @@ export default {
       type: 'number',
     },
     {
+      name: 'totalItems',
+      title: 'Total Items',
+      type: 'number',
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'blockContent',

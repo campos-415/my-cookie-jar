@@ -7,7 +7,7 @@
 @layer base {
 
   body {
-    @apply font-body text-[#232428] bg-[#e0d3bc]
+    @apply font-body text-[#232428] 
   }
 
   main {
@@ -30,6 +30,9 @@
 
   .specialGradient {
     @apply bg-gradient-to-r from-[#896145] to-[#5b3a2a]
+  }
+  .textGradient {
+    @apply  text-transparent bg-clip-text bg-gradient-to-r from-[#896145] to-[#5b3a2a]
   }
 
   .borderGradient {

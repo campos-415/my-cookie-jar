@@ -6,14 +6,11 @@ interface props {
 }
 
 function MyTabs({ categories, products }: props) {
-  console.log("Categories:", categories)
-  console.log("Products:", products)
-
-
+ 
   const showProducts = (category: number) => {
     return products
       .filter((product) => product.category._ref === categories[category]._id)
-      .map((product) => (<Product product={product} key={product._id} />))
+      .map((product) => (<Product product={product} key={product._id} id={ product._id} />))
   }
 
 
