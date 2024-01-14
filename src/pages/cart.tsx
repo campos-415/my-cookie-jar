@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 import Button from "@/components/Button";
 import { useRouter } from "next/router";
 import CheckOurProduct from "@/components/CheckOurProduct";
-import Currency from "react-currency-formatter";
 import { ChevronDownIcon } from "@heroicons/react/outline";
 import { selectBasketItems, selectBasketTotal } from "@/redux/basket/basketSlice";
 import Link from "next/link";
 import Image from "next/image";
+import Currency from "@/components/Currency";
 
 export default function Cart() {
   const items = useSelector(selectBasketItems);
@@ -79,7 +79,7 @@ export default function Cart() {
               <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
                 <p>
-                  <Currency quantity={basketTotal} currency="USD" />
+                  <Currency value={basketTotal} currency="USD" />
                 </p>
               </div>
               <p className="mt-0.5 text-sm text-gray-500">

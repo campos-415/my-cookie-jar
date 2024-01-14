@@ -1,4 +1,3 @@
-import Currency from "react-currency-formatter";
 import Image from "next/image";
 import React from "react";
 import { urlFor } from "../../sanity";
@@ -6,6 +5,7 @@ import { ChevronDownIcon, TrashIcon } from "@heroicons/react/outline";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { removeFromBasket } from "@/redux/basket/basketSlice";
+import Currency from "./Currency";
 
 interface Props {
   items: Product[];
@@ -42,7 +42,7 @@ function CheckOurProduct({ items, id }: Props) {
             <h3>{items[0]?.title}</h3>
             <p className="ml-4">
               <Currency
-                quantity={items.reduce((total, item) => total + item.price, 0)}
+                value={items.reduce((total, item) => total + item.price, 0)}
                 currency="USD"
               />
             </p>

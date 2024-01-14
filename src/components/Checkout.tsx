@@ -3,7 +3,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import Currency from "react-currency-formatter";
 import Image from "next/image";
 import { urlFor } from "../../sanity";
 import {
@@ -17,6 +16,7 @@ import { RootState } from "@/redux/store";
 import { getDiffieHellman } from "crypto";
 import toast from "react-hot-toast";
 import CheckOurProduct from "./CheckOurProduct";
+import Currency from "./Currency";
 
 interface Props {
   categories: Category[];
@@ -139,7 +139,7 @@ export default function Checkout() {
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
                         <p>
-                          <Currency quantity={basketTotal} currency="USD" />
+                          <Currency value={basketTotal} currency="USD" />
                         </p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
