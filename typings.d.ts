@@ -26,6 +26,7 @@ interface Product {
   _rev: string;
   _type: "product";
   title: string;
+  categoryName: string;
   price: number;
   slug: {
     _type: "slug";

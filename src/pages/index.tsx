@@ -24,7 +24,7 @@ export default function Home({ categories, products }: Props) {
       </Head>
       <Header />
 
-      <main>
+      <main className='mainLanding'>
         <Checkout />
         <Landing />
       </main>

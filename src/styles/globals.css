@@ -10,12 +10,13 @@
     @apply font-body text-[#232428] 
   }
 
-  main {
-    @apply relative h-[200vh]
-  }
+
 }
 
 @layer components {
+  .mainLanding {
+    @apply relative h-[200vh]
+  }
   .headerLinks {
     @apply cursor-pointer opacity-75 transition hover:opacity-100
   }

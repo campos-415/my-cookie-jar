@@ -36,6 +36,11 @@ export default {
       to: [{type: 'category'}],
     },
     {
+      name: 'categoryName',
+      title: 'Category Name',
+      type: 'string',
+    },
+    {
       name: 'price',
       title: 'Price',
       type: 'number',

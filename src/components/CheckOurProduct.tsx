@@ -8,7 +8,7 @@ import { removeFromBasket } from "@/redux/basket/basketSlice";
 import Currency from "./Currency";
 
 interface Props {
-  items: Product[];
+  items: Product[]
   id: string;
 }
 
@@ -28,10 +28,8 @@ function CheckOurProduct({ items, id }: Props) {
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
         <Image
           src={urlFor(items[0].image[0]).url()}
-          // layout="fill"
           height={100}
           width={100}
-          // objectFit="contain"
           alt="Product Image"
         />
       </div>
@@ -47,7 +45,7 @@ function CheckOurProduct({ items, id }: Props) {
               />
             </p>
           </div>
-          <p className="mt-1 text-sm text-gray-500">{items[0]._type}</p>
+          <p className="mt-1 text-sm text-gray-500">{items[0].categoryName}</p>
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">
           <p className="text-gray-500">Qty {items.length}</p>

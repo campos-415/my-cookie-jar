@@ -62,7 +62,6 @@ function Header() {
         </div>
         <div className="flex items-center justify-center gap-x-4 md:w1/5">
           <SearchIcon className="headerIcon" />
-          <Links href="/#">
             <div className="relative cursor-pointer">
               <ShoppingCartIcon className="headerIcon" onClick={handleModal}/>
               {totalItems?.length > 0 && (
@@ -71,7 +70,6 @@ function Header() {
                 </span>
               )}
             </div>
-          </Links>
           {session ? (
             <Image
               className="rounded-full cursor-pointer"
