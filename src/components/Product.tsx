@@ -17,7 +17,6 @@ import {
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import { RootState } from "@/redux/store";
-import Reviews from "./Reviews";
 
 interface Props {
   product: Product;
