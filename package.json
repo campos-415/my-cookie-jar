@@ -37,6 +37,7 @@
   "devDependencies": {
     "@types/react-currency-formatter": "^1.1.7",
     "@types/react-scroll": "^1.8.10",
+    "@types/stripe": "^8.0.417",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9"
   }

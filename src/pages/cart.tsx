@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import CheckOurProduct from "@/components/CheckOurProduct";
 import { selectBasketItems, selectBasketTotal } from "@/redux/basket/basketSlice";
 import Link from "next/link";
@@ -89,9 +90,17 @@ export default function Cart() {
           {items.length === 0 && (
             <div className="mt-6">
               <Link
+                onClick={() => setLoading(true)}
                 href="/"
                 className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
-                Continue Shopping
+                {loading ? (
+                  <span className="flex items-center space-x-2 justify-center ">
+                    <p>Loading </p>
+                    <AiOutlineLoading3Quarters className="animate-spin block w-5 h-5 m-0 p-0" />
+                  </span>
+                ) : (
+                  "Continue Shopping"
+                )}
               </Link>
             </div>
           )}
@@ -123,13 +132,21 @@ export default function Cart() {
                 <button
                   onClick={createCheckoutSession}
                   className="w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
-                  Checkout
+                  {loading ? (
+                    <span className="flex items-center space-x-2 justify-center ">
+                      <p>Loading </p>
+                      <AiOutlineLoading3Quarters className="animate-spin block w-5 h-5 m-0 p-0" />
+                    </span>
+                  ) : (
+                    "Checkout"
+                  )}
                 </button>
               </div>
               <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                 <p>
                   or{" "}
-                  <Link href={"/"}
+                  <Link
+                    href={"/"}
                     type="button"
                     className="font-medium text-indigo-600 hover:text-indigo-500">
                     Continue Shopping

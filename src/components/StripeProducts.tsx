@@ -30,19 +30,9 @@ function StripeProducts({ items, id }: Props) {
               <Currency value={items?.price.unit_amount / 100} currency="USD" />
             </p>
           </div>
-          {/* <p className="mt-1 text-sm text-gray-500"> ${items?.price.unit_amount / 100}</p> */}
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">
           <p className="text-gray-500">Qty {items.quantity}</p>
-
-          <div className="flex">
-            {/* <button
-              onClick={removeItemFromBasket}
-              type="button"
-              className="font-medium text-indigo-600 hover:text-indigo-500">
-              Remove
-            </button> */}
-          </div>
         </div>
       </div>
     </li>

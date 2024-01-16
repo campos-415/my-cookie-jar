@@ -13,10 +13,13 @@ import {
 } from "@/redux/basket/basketSlice";
 import { selectModalValue, toggleModal } from "@/redux/modal/modalSlice";
 import { RootState } from "@/redux/store";
-import { getDiffieHellman } from "crypto";
 import toast from "react-hot-toast";
 import CheckOurProduct from "./CheckOurProduct";
 import Currency from "./Currency";
+import getStripe from "@/utils/get-stripe";
+import { fetchPostJSON } from "@/utils/api-helpers";
+import Stripe from "stripe";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 interface Props {
   categories: Category[];
@@ -28,23 +31,48 @@ export default function Checkout() {
   const isOpen = useSelector(selectModalValue);
   const dispatch = useDispatch();
   const [id, setId] = useState<string>("");
+  const [loading, setLoading] = useState(false);
   const quantity = useSelector((state: RootState) =>
     selectBasketItemsWithId(state.basket, id)
   );
   const [groupedItemInBasket, setGroupedItemsInBasket] = useState(
     {} as { [key: string]: Product[] }
   );
+  const createCheckoutSession = async () => {
+    setLoading(true);
+
+    const checkoutSession: Stripe.Checkout.Session = await fetchPostJSON(
+      "/api/checkout_sessions",
+      {
+        items: items,
+      }
+    );
+
+    //Internal Server Error
+    if ((checkoutSession as any).statusCode === 500) {
+      console.error((checkoutSession as any).message);
+      return;
+    }
+
+    //Redirect to Checkout
+    const stripe = await getStripe();
+    const { error } = await stripe!.redirectToCheckout({
+      //Make the `Id` field from the Checkouts Session creation API response
+      //avaiable to this file, so you can provide it as parameter here
+      //instead of the {{CHECKOUT_SESSION_ID}} placeholder
+      sessionId: checkoutSession.id,
+    });
+
+    //If "redirectToCheckout" fails due to a browser or network
+    // error, display the localized error message to your costumer
+    // using `error.message`.
+    console.warn(error.message);
+
+    setLoading(false);
+  };
   function handleModal() {
     dispatch(toggleModal());
   }
-
-  const removeItemFromBasket = () => {
-    dispatch(removeFromBasket({ id }));
-
-    toast.error(`${items[0].title} removed from basket`, {
-      position: "bottom-center",
-    });
-  };
 
   useEffect(() => {
     const groupedItems = items?.reduce(
@@ -147,9 +175,17 @@ export default function Checkout() {
                       </p>
                       <div className="mt-6">
                         <button
+                          onClick={createCheckoutSession}
                           disabled={quantity.length === 0}
                           className=" disabled:bg-indigo-300 disabled:cursor-not-allowed  w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
-                          Checkout
+                          {loading ? (
+                            <span className="flex items-center space-x-2 justify-center ">
+                              <p>Loading </p>
+                              <AiOutlineLoading3Quarters className="animate-spin block w-5 h-5 m-0 p-0" />
+                            </span>
+                          ) : (
+                            "Checkout"
+                          )}
                         </button>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

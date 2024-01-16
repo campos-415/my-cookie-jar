@@ -3,14 +3,15 @@ import Product from "./Product";
 interface props {
   categories: Category[]
   products: Product[]
+  loading: boolean
 }
 
-function MyTabs({ categories, products }: props) {
+function MyTabs({ categories, products, loading }: props) {
  
   const showProducts = (category: number) => {
     return products
       .filter((product) => product.category._ref === categories[category]._id)
-      .map((product) => (<Product product={product} key={product._id} id={ product._id} />))
+      .map((product) => (<Product loading={loading} product={product} key={product._id} id={ product._id} />))
   }
 
 
@@ -27,7 +28,7 @@ function MyTabs({ categories, products }: props) {
              font-light outline-none md:py-4 md:px-6 md:text-base
              ${
                selected
-                 ? "borderGradient bg-[#35383C]  text-white"
+                 ? "borderGradient bg-white  text-black"
                  : "border-b-2 border-[#35383C] text-[#747474]"
              }`}>
             {category.title}

@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
 import Button from './Button'
 import Image from 'next/image'
+import { Link } from 'react-scroll'
 
 function Landing() {
-  const [loading, setLoading] = useState(false)
-
-  function onClick() {
-    setLoading(!loading)
-    return
-  }
   return (
     <section className='fixed w-full h-full top-24'>
       <div className=" mx-auto flex h-screen max-w-[7776px] items-center justify-between space-x-3 px-8">
@@ -22,7 +17,15 @@ function Landing() {
           </h1>
 
           <div className="space-x-8">
-            <Button noIcon title="Buy Now" onClick={onClick} loading={loading} />
+            <Link activeClass="active"
+            to="products"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={900} >
+              <Button noIcon title="Buy Now" />
+            
+            </Link>
             <a className="link">Learn More</a>
           </div>
         </div>

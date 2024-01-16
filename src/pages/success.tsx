@@ -29,7 +29,7 @@ function Success({ products }: Props) {
     (acc, product) => acc + product.price.unit_amount / 100,
     0
   );
-  console.log(products);
+  // console.log(products);
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -187,6 +187,10 @@ function Success({ products }: Props) {
                     </span>
                   </p>
                 </div>
+                <div>
+                  {}
+                </div>
+
               </div>
             )}
           </section>

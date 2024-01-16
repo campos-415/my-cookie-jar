@@ -11,10 +11,11 @@ import Checkout from '@/components/Checkout';
 interface Props {
   categories: Category[]
   products: Product[]
+  loading: boolean
 }
 
 
-export default function Home({ categories, products }: Props) {
+export default function Home({ categories, products, loading }: Props) {
 
   return (
     <>
@@ -34,7 +35,7 @@ export default function Home({ categories, products }: Props) {
           <h1 className="text-center text-4xl font-medium tracking-wide text-white md:text-5xl">
             New Products
           </h1>
-          <MyTabs categories={categories} products={products} />
+          <MyTabs categories={categories} products={products} loading={loading} />
         </div>
       </section>
     </>
@@ -44,13 +45,15 @@ export default function Home({ categories, products }: Props) {
 //Backend Code 
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  
+  let loading = true
   const categories = await fetchCategories()
   const products = await fetchProducts()
+  loading = false
   return {
     props: {
       categories,
       products,
+      loading,
     }
   }
 } 

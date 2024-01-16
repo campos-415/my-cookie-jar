@@ -14,10 +14,9 @@ function Button({title, onClick, width, loading, padding, noIcon}:Props) {
       <button
         className={` ${
           width ? width : "w-auto"
-        } ${padding} ease group z-30 box-border relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#896145] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 group`}
+        } ${padding} ease group z-30 box-border relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-[#896145] transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-specialGradient group`}
         onClick={onClick}>
-        <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out specialGradient group-hover:h-full text-black">
-        </span>
+        <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out specialGradient group-hover:h-full text-black"></span>
         <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
           {noIcon && (
             <svg
@@ -49,7 +48,7 @@ function Button({title, onClick, width, loading, padding, noIcon}:Props) {
           </svg>
         </span>
         <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
-          {loading ? "Loading" : title }
+          {loading ? "Loading" : title}
         </span>
       </button>
     </>

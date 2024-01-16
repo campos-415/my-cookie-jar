@@ -3,11 +3,14 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 import { selectBasketItems } from "@/redux/basket/basketSlice";
+import { selectModalValue } from "@/redux/modal/modalSlice";
 
 function Basket() {
   const items = useSelector(selectBasketItems);
+  const isOpen = useSelector(selectModalValue)
 
-  if (items?.length === 0) return null;
+  console.log(isOpen)
+  if (items?.length === 0 || isOpen) return null;
   return (
     <Link href="/cart">
       <div className="fixed bottom-10 right-10 z-40 flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-gray-300">
