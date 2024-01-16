@@ -78,17 +78,6 @@ function Header() {
               </span>
             )}
           </div>
-          {session ? (
-            <Image
-              className="rounded-full cursor-pointer"
-              src="/assets/cookie-logo.png"
-              width={34}
-              height={34}
-              alt="userImage"
-            />
-          ) : (
-            <UserIcon className="headerIcon" />
-          )}
         </div>
       </header>
     </>
