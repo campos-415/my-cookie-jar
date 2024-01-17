@@ -15,14 +15,14 @@ function EasternEgg({isEggCracked, crackedEgg, openEgg, egg, padding}: Props) {
           <Image
             src={crackedEgg}
             alt=""
-            width={25}
-            height={25}
+            width={40}
+            height={40}
             onClick={openEgg}
           />
           <Footer />
         </div>
       ) : (
-        <Image src={egg} alt="" width={25} height={25} onClick={openEgg} />
+        <Image src={egg} alt="" width={30} height={30} onClick={openEgg} />
       )}
     </div>
   );

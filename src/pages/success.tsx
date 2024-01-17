@@ -20,12 +20,14 @@ import { useMediaQuery } from "react-responsive";
 import crackedEgg from "../../public/assets/cracked.png";
 import egg from "../../public/assets/egg.png";
 import EasternEgg from "@/components/EasternEgg";
+import { useSession } from "next-auth/react";
 
 interface Props {
   products: StripeProduct[];
 }
 
 function Success({ products }: Props) {
+  const {data: session} = useSession()
   const router = useRouter();
   const { session_id } = router.query;
   const [mounted, setMounted] = useState(false);
@@ -95,7 +97,7 @@ function Success({ products }: Props) {
               </p>
               <h4 className="text-lg ">
                 Thank You!{" "}
-                {/* {session ? session?.user?.split(" ")[0] : "Guest"} */}
+                {session ? session?.user?.name?.split(" ")[0] : "Guest"}
               </h4>
             </div>
           </div>

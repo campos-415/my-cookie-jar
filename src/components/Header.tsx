@@ -1,17 +1,19 @@
 import Image from "next/image";
 import Links from "next/link";
 import React from "react";
-import { HomeIcon, PhoneIcon, ShoppingCartIcon } from "@heroicons/react/outline";
+import { HomeIcon, PhoneIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import { useRouter } from "next/router";
 import { selectBasketItems } from "@/redux/basket/basketSlice";
 import { toggleModal } from "@/redux/modal/modalSlice";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function Header() {
   const router = useRouter();
   const dispatch = useDispatch();
   const totalItems = useSelector(selectBasketItems);
+  const {data: session} = useSession()
 
   function handleModal() {
     dispatch(toggleModal());
@@ -49,8 +51,6 @@ function Header() {
               Products
             </Links>
           )}
-
-          {/* <a className="headerLinks link">About Us</a> */}
           <Links href={"/contact"}>
             <span className="headerLinks link">Contact</span>
           </Links>
@@ -74,14 +74,30 @@ function Header() {
             ) : (
               <ShoppingCartIcon className="headerIcon" onClick={handleModal} />
             )}
-            {totalItems?.length > 0 &&
-              router.pathname !== 
-                "/cart" ? (
-                  <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 justify-center items-center rounded-full bg-red-500 text-[10px] text-white">
-                    {totalItems?.length}
-                  </span>
-                ):""}
+            {totalItems?.length > 0 && router.pathname !== "/cart" ? (
+              <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 justify-center items-center rounded-full bg-red-500 text-[10px] text-white">
+                {totalItems?.length}
+              </span>
+            ) : (
+              ""
+            )}
           </div>
+
+          {session ? (
+            <Image
+              src={
+                session.user?.image ||
+                "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
+              }
+              alt=""
+              className="cursor-pointer rounded-full"
+              width={34}
+              height={34}
+              onClick={() => signOut()}
+            />
+          ) : (
+            <UserIcon className="headerIcon" onClick={() => signIn()} />
+          )}
         </div>
       </header>
     </>
