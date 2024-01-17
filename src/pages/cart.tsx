@@ -8,7 +8,7 @@ import { selectBasketItems, selectBasketTotal } from "@/redux/basket/basketSlice
 import Link from "next/link";
 import Image from "next/image";
 import Currency from "@/components/Currency";
-import Checkout from "@/components/Checkout";
+import Checkout from "@/components/CheckoutModal";
 import Stripe from "stripe";
 import getStripe from "@/utils/get-stripe";
 import { fetchPostJSON } from "@/utils/api-helpers";
@@ -172,7 +172,7 @@ export default function Cart() {
           openEgg={openEgg}
           egg={egg}
           crackedEgg={crackedEgg}
-          padding="pt-8"
+          padding="pt-24 md:pt-56"
         />
       </main>
     </div>

@@ -1,6 +1,5 @@
-import CheckOurProduct from "@/components/CheckOurProduct";
+
 import Currency from "@/components/Currency";
-import Footer from "@/components/Footer";
 import StripeProducts from "@/components/StripeProducts";
 import { selectFooterValue, crackEgg } from "@/redux/footer/footerSlice";
 import { fetchLineItems } from "@/utils/fetchLinesItems";
@@ -124,19 +123,26 @@ function Success({ products }: Props) {
             </p>
           </div>
           <div className=" mx-4 lg:ml-14 text-sm flex items-center justify-center flex-col text-center">
-            <p className=" text-xs w-fit lg:inline link">
+            <Link href="/contact" className=" text-xs w-fit lg:inline link">
               Need help? Contact us
-            </p>
+            </Link>
             {mounted && (
               <div className=" md:w-fit mt-6">
                 <Link
                   href="/"
                   className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
-                  Continue Shopping
+                  Back to Store
                 </Link>
               </div>
             )}
           </div>
+          <EasternEgg
+            isEggCracked={isEggCracked}
+            openEgg={openEgg}
+            egg={egg}
+            crackedEgg={crackedEgg}
+            padding="pt-16 md:pt-24"
+          />
         </section>
 
         {mounted && (
@@ -205,12 +211,6 @@ function Success({ products }: Props) {
           </section>
         )}
       </main>
-      <EasternEgg
-        isEggCracked={isEggCracked}
-        openEgg={openEgg}
-        egg={egg}
-        crackedEgg={crackedEgg}
-      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Links from "next/link";
 import React from "react";
-import { PhoneIcon, ShoppingCartIcon } from "@heroicons/react/outline";
+import { HomeIcon, PhoneIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import { useRouter } from "next/router";
@@ -56,16 +56,31 @@ function Header() {
           </Links>
         </div>
         <div className="flex items-center justify-center gap-x-4 md:w1/5">
-          <Links href={"/contact"}>
-            <PhoneIcon className="headerIcon md:hidden" />
-          </Links>
+          {router.pathname === "/contact" ? (
+            <Links href={"/"}>
+              <HomeIcon className="headerIcon md:hidden" />
+            </Links>
+          ) : (
+            <Links href={"/contact"}>
+              <PhoneIcon className="headerIcon md:hidden" />
+            </Links>
+          )}
+
           <div className="relative cursor-pointer">
-            <ShoppingCartIcon className="headerIcon" onClick={handleModal} />
-            {totalItems?.length > 0 && (
-              <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 justify-center items-center rounded-full bg-red-500 text-[10px] text-white">
-                {totalItems?.length}
-              </span>
+            {router.pathname === "/cart" ? (
+              <Links href={"/"}>
+                <HomeIcon className="headerIcon md:hidden" />
+              </Links>
+            ) : (
+              <ShoppingCartIcon className="headerIcon" onClick={handleModal} />
             )}
+            {totalItems?.length > 0 &&
+              router.pathname !== 
+                "/cart" ? (
+                  <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 justify-center items-center rounded-full bg-red-500 text-[10px] text-white">
+                    {totalItems?.length}
+                  </span>
+                ):""}
           </div>
         </div>
       </header>

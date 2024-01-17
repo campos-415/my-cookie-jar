@@ -6,7 +6,7 @@ import { fetchCategories } from '@/utils/fetchCategories';
 import { fetchProducts } from '@/utils/fetchProducts';
 import Basket from '@/components/Basket';
 import Head from 'next/head';
-import Checkout from '@/components/Checkout';
+import Checkout from '@/components/CheckoutModal';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';

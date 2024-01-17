@@ -21,7 +21,7 @@ interface Props {
   categories: Category[];
 }
 
-export default function Checkout() {
+export default function CheckoutModal() {
   const items = useSelector(selectBasketItems);
   const basketTotal = useSelector(selectBasketTotal);
   const isOpen = useSelector(selectModalValue);
@@ -98,7 +98,7 @@ export default function Checkout() {
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-hidden">
+        <div className="fixed inset-0 overflow-hidden" onClick={handleModal}>
           <div className="absolute inset-0 overflow-hidden">
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
               <Transition.Child
@@ -109,27 +109,27 @@ export default function Checkout() {
                 leave="transform transition ease-in-out duration-500 sm:duration-700"
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full">
-                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                <Dialog.Panel className="pointer-events-auto w-screen max-w-xs md:max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 flex flex-col items-center ">
-                        <div className="flex items-start space-x-[220px] justify-between">
-                          <Dialog.Title className="text-lg font-medium text-gray-900">
-                            Shopping cart
-                          </Dialog.Title>
-                          <div className="ml-3 flex h-7 items-center">
-                            <button
-                              type="button"
-                              className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
-                              onClick={handleModal}>
-                              <span className="absolute -inset-0.5" />
-                              <span className="sr-only">Close panel</span>
-                              <XIcon className="h-6 w-6" aria-hidden="true" />
-                            </button>
-                          </div>
+                    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 flex flex-col items-center  ">
+                      <div className="flex items-start justify-between space-x-32 md:space-x-56">
+                        <Dialog.Title className="text-lg font-medium text-gray-900">
+                          Shopping cart
+                        </Dialog.Title>
+                        <div className="ml-3 flex h-7 items-center">
+                          <button
+                            type="button"
+                            className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                            onClick={handleModal}>
+                            <span className="absolute -inset-0.5" />
+                            <span className="sr-only">Close panel</span>
+                            <XIcon className="h-6 w-6" aria-hidden="true" />
+                          </button>
                         </div>
-
+                      </div>
+                      
                       {items.length <= 0 &&(
-                        <div className="flex items-center justify-center relative h-[350px] w-[350px] transition-all duration-500  lg:h-[350px] lg:w-[300px]">
+                        <div className="flex items-center justify-center relative h-[200px] w-[200px] transition-all duration-500  lg:h-[350px] lg:w-[300px]">
                           <Image
                             alt="empty cart"
                             layout="fill"

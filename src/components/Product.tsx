@@ -37,20 +37,27 @@ function Product({ product, id, loading }: Props) {
         imageUrl={imageUrl}
         product={product}
       />
-    ));
+    ), {
+      duration:300
+    });
   };
 
   function addProductToBasket() {
     dispatch(addToBasket(product));
-    toast.custom((t) => (
-      <Notification // custom toast component located @Components
-        t={t}
-        text="Has been added from basket"
-        icon="✅"
-        imageUrl={imageUrl}
-        product={product}
-      />
-    ));
+    toast.custom(
+      (t) => (
+        <Notification // custom toast component located @Components
+          t={t}
+          text="Has been added from basket"
+          icon="✅"
+          imageUrl={imageUrl}
+          product={product}
+        />
+      ),
+      {
+        duration: 300,
+      }
+    );
   }
 
   return (

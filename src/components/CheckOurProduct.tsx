@@ -18,15 +18,19 @@ function CheckOurProduct({ items, id }: Props) {
   const removeItemFromBasket = () => {
     dispatch(removeFromBasket({ id }));
     
-    toast.custom((t) => (
-      <Notification
-        t={t}
-        icon="❌"
-        text="Has been removed from basket"
-        imageUrl={imageUrl}
-        products={items}
-      />
-    ));
+    toast.custom(
+      (t) => (
+        <Notification
+          t={t}
+          icon="❌"
+          text="Has been removed from basket"
+          imageUrl={imageUrl}
+          products={items}
+        />
+      ),
+      {
+        duration: 800,
+      });
 
   };
 

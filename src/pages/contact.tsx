@@ -1,4 +1,4 @@
-import Checkout from '@/components/Checkout';
+import Checkout from '@/components/CheckoutModal';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
