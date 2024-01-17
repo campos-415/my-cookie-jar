@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Links from "next/link";
 import React from "react";
-import { ShoppingCartIcon } from "@heroicons/react/outline";
+import { PhoneIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import { useRouter } from "next/router";
@@ -50,12 +50,15 @@ function Header() {
             </Links>
           )}
 
-          <a className="headerLinks link">About Us</a>
+          {/* <a className="headerLinks link">About Us</a> */}
           <Links href={"/contact"}>
             <span className="headerLinks link">Contact</span>
           </Links>
         </div>
         <div className="flex items-center justify-center gap-x-4 md:w1/5">
+          <Links href={"/contact"}>
+            <PhoneIcon className="headerIcon md:hidden" />
+          </Links>
           <div className="relative cursor-pointer">
             <ShoppingCartIcon className="headerIcon" onClick={handleModal} />
             {totalItems?.length > 0 && (
