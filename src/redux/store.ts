@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import basketReducer from "./basket/basketSlice";
 import modalReducer from "./modal/modalSlice";
+import footerReducer from "./footer/footerSlice";
 
 export const store = configureStore({
   reducer: {
     basket: basketReducer,
     modal: modalReducer,
+    footer: footerReducer
   },
 });
 

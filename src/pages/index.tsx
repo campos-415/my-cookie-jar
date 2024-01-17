@@ -7,6 +7,12 @@ import { fetchProducts } from '@/utils/fetchProducts';
 import Basket from '@/components/Basket';
 import Head from 'next/head';
 import Checkout from '@/components/Checkout';
+import Footer from '@/components/Footer';
+import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
+import { crackEgg, selectFooterValue } from '@/redux/footer/footerSlice';
+import crackedEgg from "../../public/assets/cracked.png";
+import egg from "../../public/assets/egg.png";
 
 interface Props {
   categories: Category[]
@@ -16,6 +22,12 @@ interface Props {
 
 
 export default function Home({ categories, products, loading }: Props) {
+   const dispatch = useDispatch();
+   const isEggCracked = useSelector(selectFooterValue);
+
+   const openEgg = () => {
+     dispatch(crackEgg());
+   };
 
   return (
     <>
@@ -25,17 +37,37 @@ export default function Home({ categories, products, loading }: Props) {
       </Head>
       <Header />
 
-      <main className='mainLanding'>
+      <main className="mainLanding">
         <Checkout />
         <Landing />
       </main>
-      <section id='products' className="productSection">
+      <section id="products" className="productSection">
         <Basket />
         <div className="space-y-10 py-16">
           <h1 className="text-center text-4xl font-medium tracking-wide text-white md:text-5xl">
             New Products
           </h1>
-          <MyTabs categories={categories} products={products} loading={loading} />
+          <MyTabs
+            categories={categories}
+            products={products}
+            loading={loading}
+          />
+        </div>
+        <div className="flex items-center justify-center pt-8">
+          {isEggCracked ? (
+            <div className="flex items-center justify-center flex-col">
+              <Image
+                src={crackedEgg}
+                alt=""
+                width={25}
+                height={25}
+                onClick={openEgg}
+              />
+              <Footer />
+            </div>
+          ) : (
+            <Image src={egg} alt="" width={25} height={25} onClick={openEgg} />
+          )}
         </div>
       </section>
     </>

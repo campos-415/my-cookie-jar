@@ -1,6 +1,8 @@
 import CheckOurProduct from "@/components/CheckOurProduct";
 import Currency from "@/components/Currency";
+import Footer from "@/components/Footer";
 import StripeProducts from "@/components/StripeProducts";
+import { selectFooterValue, crackEgg } from "@/redux/footer/footerSlice";
 import { fetchLineItems } from "@/utils/fetchLinesItems";
 import {
   CheckIcon,
@@ -14,7 +16,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
+import crackedEgg from "../../public/assets/cracked.png";
+import egg from "../../public/assets/egg.png";
 
 interface Props {
   products: StripeProduct[];
@@ -40,6 +45,12 @@ function Success({ products }: Props) {
   const handleShowOrderSummary = () => {
     setShowOrderSummary(!showOrderSummary);
     console.log(showOrderSummary, "showOrderSummary");
+  };
+  const dispatch = useDispatch();
+  const isEggCracked = useSelector(selectFooterValue);
+
+  const openEgg = () => {
+    dispatch(crackEgg());
   };
 
   return (
@@ -187,14 +198,27 @@ function Success({ products }: Props) {
                     </span>
                   </p>
                 </div>
-                <div>
-                  {}
-                </div>
-
+                <div>{}</div>
               </div>
             )}
           </section>
         )}
+        <div className="flex items-center justify-center pt-8">
+          {isEggCracked ? (
+            <div className=" flex items-center justify-center flex-col">
+              <Image
+                src={crackedEgg}
+                alt=""
+                width={25}
+                height={25}
+                onClick={openEgg}
+              />
+              <Footer />
+            </div>
+          ) : (
+            <Image src={egg} alt="" width={25} height={25} onClick={openEgg} />
+          )}
+        </div>
       </main>
     </div>
   );

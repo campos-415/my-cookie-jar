@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import CheckOurProduct from "@/components/CheckOurProduct";
 import { selectBasketItems, selectBasketTotal } from "@/redux/basket/basketSlice";
@@ -12,6 +12,10 @@ import Checkout from "@/components/Checkout";
 import Stripe from "stripe";
 import getStripe from "@/utils/get-stripe";
 import { fetchPostJSON } from "@/utils/api-helpers";
+import Footer from "@/components/Footer";
+import crackedEgg from "../../public/assets/cracked.png";
+import egg from "../../public/assets/egg.png";
+import { crackEgg, selectFooterValue } from "@/redux/footer/footerSlice";
 
 export default function Cart() {
   const items = useSelector(selectBasketItems);
@@ -20,6 +24,12 @@ export default function Cart() {
   const [groupedItemInBasket, setGroupedItemsInBasket] = useState(
     {} as { [key: string]: Product[] }
   );
+    const dispatch = useDispatch();
+    const isEggCracked = useSelector(selectFooterValue);
+
+    const openEgg = () => {
+      dispatch(crackEgg());
+    };
   const createCheckoutSession = async () => {
     setLoading(true)
 
@@ -157,6 +167,22 @@ export default function Cart() {
             </div>
           </div>
         )}
+        <div className="flex items-center justify-center pt-8">
+          {isEggCracked ? (
+            <div className="flex items-center justify-center flex-col">
+              <Image
+                src={crackedEgg}
+                alt=""
+                width={25}
+                height={25}
+                onClick={openEgg}
+              />
+              <Footer />
+            </div>
+          ) : (
+            <Image src={egg} alt="" width={25} height={25} onClick={openEgg} />
+          )}
+        </div>
       </main>
     </div>
   );

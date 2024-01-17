@@ -1,11 +1,11 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { urlFor } from "../../sanity";
-import { ChevronDownIcon, TrashIcon } from "@heroicons/react/outline";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { removeFromBasket } from "@/redux/basket/basketSlice";
 import Currency from "./Currency";
+import Notification from "./Notification";
 
 interface Props {
   items: Product[]
@@ -14,20 +14,48 @@ interface Props {
 
 function CheckOurProduct({ items, id }: Props) {
   const dispatch = useDispatch();
+   const [isLoading, setIsLoading] = useState(true);
+
+  const imageUrl = urlFor(items[0].image[0]).url()
+  const toastStyle = {
+    backgound: "white",
+    color: "black",
+    fontWheigth: "bold",
+    fontSize: "16px",
+    padding: "18px",
+    borderRadius: "9999px",
+    maxWidth: "1000px",
+  };
+   const handleImageLoad = () => {
+     setIsLoading(false);
+   };
 
   const removeItemFromBasket = () => {
     dispatch(removeFromBasket({ id }));
+    
+    toast.custom((t) => (
+      <Notification
+        t={t}
+        icon="❌"
+        text="Has been removed from basket"
+        imageUrl={imageUrl}
+        isLoading={isLoading}
+        products={items}
+        handleImageLoad={handleImageLoad}
+      />
+    ));
 
-    toast.error(`${items[0].title} removed from basket`, {
-      position: "bottom-center",
-    });
+    // toast.error(`${items[0].title} removed from basket`, {
+    //   style: toastStyle,
+    //   duration: 900
+    // });
   };
 
   return (
     <li key={id} className="flex py-6">
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
         <Image
-          src={urlFor(items[0].image[0]).url()}
+          src={imageUrl}
           height={100}
           width={100}
           alt="Product Image"
