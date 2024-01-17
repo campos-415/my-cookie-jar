@@ -1,4 +1,4 @@
-import { Tab, TabPanelsProps } from "@headlessui/react";
+import { Tab } from "@headlessui/react";
 import Product from "./Product";
 interface props {
   categories: Category[]

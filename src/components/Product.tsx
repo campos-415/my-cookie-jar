@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React, { useState } from "react";
 import { urlFor } from "../../sanity";
 import {
   MinusCircleIcon,
@@ -27,11 +26,6 @@ function Product({ product, id, loading }: Props) {
   const selectedByGroup = useSelector((state: RootState) =>
     selectBasketItemsWithId(state.basket, id)
   );
-  const [isLoading, setIsLoading] = useState(true);
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
-
   const removeItemFromBasket = () => {
     dispatch(removeFromBasket({ id }));
 
@@ -41,9 +35,7 @@ function Product({ product, id, loading }: Props) {
         text="Has been removed from basket"
         icon="❌"
         imageUrl={imageUrl}
-        isLoading={isLoading}
         product={product}
-        handleImageLoad={handleImageLoad}
       />
     ));
   };
@@ -56,9 +48,7 @@ function Product({ product, id, loading }: Props) {
         text="Has been added from basket"
         icon="✅"
         imageUrl={imageUrl}
-        isLoading={isLoading}
         product={product}
-        handleImageLoad={handleImageLoad}
       />
     ));
   }

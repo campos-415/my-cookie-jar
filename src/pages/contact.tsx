@@ -5,11 +5,9 @@ import Header from '@/components/Header';
 import crackedEgg from "../../public/assets/cracked.png"
 import egg from "../../public/assets/egg.png"
 import Head from 'next/head';
-import Image from 'next/image';
-import React, { useState } from 'react'
-import { FaEgg } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { crackEgg, selectFooterValue } from '@/redux/footer/footerSlice';
+import EasternEgg from '@/components/EasternEgg';
 
 function contact() {
   const dispatch = useDispatch()
@@ -28,23 +26,8 @@ function contact() {
       <main>
         <Checkout />
         <Contact />
-        <div className="flex items-center justify-center pt-80 ">
-          {isEggCracked ? (
-            <div className="flex items-center justify-center flex-col">
-              <Image
-                src={crackedEgg}
-                alt=""
-                width={25}
-                height={25}
-                onClick={openEgg}
-              />
-              <Footer />
-            </div>
-          ) : (
-            <Image src={egg} alt="" width={25} height={25} onClick={openEgg} />
-          )}
-        </div>
       </main>
+        <EasternEgg isEggCracked={isEggCracked} openEgg={openEgg} egg={egg} crackedEgg={crackedEgg} padding='pt-64'  />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { crackEgg, selectFooterValue } from '@/redux/footer/footerSlice';
 import crackedEgg from "../../public/assets/cracked.png";
 import egg from "../../public/assets/egg.png";
+import EasternEgg from '@/components/EasternEgg';
 
 interface Props {
   categories: Category[]
@@ -54,21 +55,13 @@ export default function Home({ categories, products, loading }: Props) {
           />
         </div>
         <div className="flex items-center justify-center pt-8">
-          {isEggCracked ? (
-            <div className="flex items-center justify-center flex-col">
-              <Image
-                src={crackedEgg}
-                alt=""
-                width={25}
-                height={25}
-                onClick={openEgg}
-              />
-              <Footer />
-            </div>
-          ) : (
-            <Image src={egg} alt="" width={25} height={25} onClick={openEgg} />
-          )}
         </div>
+          <EasternEgg
+            isEggCracked={isEggCracked}
+            openEgg={openEgg}
+            egg={egg}
+            crackedEgg={crackedEgg}
+          />
       </section>
     </>
   );

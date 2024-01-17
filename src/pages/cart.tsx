@@ -16,6 +16,7 @@ import Footer from "@/components/Footer";
 import crackedEgg from "../../public/assets/cracked.png";
 import egg from "../../public/assets/egg.png";
 import { crackEgg, selectFooterValue } from "@/redux/footer/footerSlice";
+import EasternEgg from "@/components/EasternEgg";
 
 export default function Cart() {
   const items = useSelector(selectBasketItems);
@@ -96,7 +97,6 @@ export default function Cart() {
               </div>
             )}
           </h1>
-          <p className="my-4">Free deliveries and Free returns!</p>
           {items.length === 0 && (
             <div className="mt-6">
               <Link
@@ -167,22 +167,13 @@ export default function Cart() {
             </div>
           </div>
         )}
-        <div className="flex items-center justify-center pt-8">
-          {isEggCracked ? (
-            <div className="flex items-center justify-center flex-col">
-              <Image
-                src={crackedEgg}
-                alt=""
-                width={25}
-                height={25}
-                onClick={openEgg}
-              />
-              <Footer />
-            </div>
-          ) : (
-            <Image src={egg} alt="" width={25} height={25} onClick={openEgg} />
-          )}
-        </div>
+        <EasternEgg
+          isEggCracked={isEggCracked}
+          openEgg={openEgg}
+          egg={egg}
+          crackedEgg={crackedEgg}
+          padding="pt-8"
+        />
       </main>
     </div>
   );

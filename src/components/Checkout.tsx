@@ -111,7 +111,7 @@ export default function Checkout() {
                 leaveTo="translate-x-full">
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 flex flex-col items-center justify-between">
+                    <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 flex flex-col items-center ">
                         <div className="flex items-start space-x-[220px] justify-between">
                           <Dialog.Title className="text-lg font-medium text-gray-900">
                             Shopping cart
@@ -128,9 +128,7 @@ export default function Checkout() {
                           </div>
                         </div>
 
-                      {items.length > 0 ? (
-                        "Review your Bag!"
-                      ) : (
+                      {items.length <= 0 &&(
                         <div className="flex items-center justify-center relative h-[350px] w-[350px] transition-all duration-500  lg:h-[350px] lg:w-[300px]">
                           <Image
                             alt="empty cart"

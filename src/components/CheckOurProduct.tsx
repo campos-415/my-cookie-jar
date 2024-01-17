@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React, { useState } from "react";
 import { urlFor } from "../../sanity";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
@@ -14,21 +13,7 @@ interface Props {
 
 function CheckOurProduct({ items, id }: Props) {
   const dispatch = useDispatch();
-   const [isLoading, setIsLoading] = useState(true);
-
   const imageUrl = urlFor(items[0].image[0]).url()
-  const toastStyle = {
-    backgound: "white",
-    color: "black",
-    fontWheigth: "bold",
-    fontSize: "16px",
-    padding: "18px",
-    borderRadius: "9999px",
-    maxWidth: "1000px",
-  };
-   const handleImageLoad = () => {
-     setIsLoading(false);
-   };
 
   const removeItemFromBasket = () => {
     dispatch(removeFromBasket({ id }));
@@ -39,16 +24,10 @@ function CheckOurProduct({ items, id }: Props) {
         icon="❌"
         text="Has been removed from basket"
         imageUrl={imageUrl}
-        isLoading={isLoading}
         products={items}
-        handleImageLoad={handleImageLoad}
       />
     ));
 
-    // toast.error(`${items[0].title} removed from basket`, {
-    //   style: toastStyle,
-    //   duration: 900
-    // });
   };
 
   return (

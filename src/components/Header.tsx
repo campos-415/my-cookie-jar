@@ -2,7 +2,6 @@ import Image from "next/image";
 import Links from "next/link";
 import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
-
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import { useRouter } from "next/router";

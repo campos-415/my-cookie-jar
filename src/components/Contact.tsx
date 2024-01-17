@@ -189,22 +189,6 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center py-12 ">
-              <Link
-                to="contact"
-                spy={true}
-                smooth={true}
-                duration={100}
-                className="cursor-pointer">
-                <div
-                  className="rounded-full shadow-lg animate-[bounce_1s_ease-in-out_infinite shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300">
-                  <HiOutlineChevronDoubleUp
-                    size={25}
-                    className="text-indigo-600"
-                  />
-                </div>
-              </Link>
-            </div>
           </div>
         </div>
       </section>

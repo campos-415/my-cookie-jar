@@ -3,16 +3,14 @@ import React from 'react'
 import toast, { Toast } from 'react-hot-toast';
 interface Props {
   t: Toast;
-  isLoading: boolean;
   imageUrl: string;
-  handleImageLoad: () => void;
   product?: Product 
   products?: Product[]
   text: string
   icon:string
 
-}
-function Notification({t, isLoading, imageUrl, handleImageLoad, product, products, text, icon}: Props) {
+} 
+function Notification({t, imageUrl,  product, products, text, icon}: Props) {
   return (
     <div
       className={`${
@@ -21,18 +19,12 @@ function Notification({t, isLoading, imageUrl, handleImageLoad, product, product
       <div className="flex-1 w-0 p-4">
         <div className="flex items-start">
           <div className="flex-shrink-0 pt-0.5 relative">
-            {isLoading && (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-300">
-                <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-500"></div>
-              </div>
-            )}
             <Image
               className={`h-10 w-10`}
               width={100}
               height={100}
               src={imageUrl}
               alt=""
-              onLoad={handleImageLoad}
             />
           </div>
           <div className="ml-3 flex-1">
